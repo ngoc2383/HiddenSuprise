@@ -22,8 +22,7 @@ h1 {
 }
 
 img {
-    position: relative;
+    position: absolute;
     width: auto;
     height: auto;
-    object-fit: contain;
 }
