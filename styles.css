@@ -22,7 +22,8 @@ h1 {
 }
 
 img {
-    position: absolute;
+    position: relative;
     width: auto;
     height: auto;
+    border-radius: 20px;
 }
