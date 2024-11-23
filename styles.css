@@ -1,6 +1,11 @@
+:root {
+    --border-color: #ff00dd;
+    --border: 15px;
+}
 body {
     padding-top: 0;
     margin: 0;
+    background-color: rgb(18, 1, 22);
 }
 
 h1 {
@@ -11,19 +16,34 @@ h1 {
     font-weight: 400;
     font-style: normal;
     font-size: 4rem;
+}
 
+header {
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     width: auto;
-    max-height: 200px;
-    background-color: cadetblue;
+    height: 120px;
+    background-color: var(--border-color);
 }
 
 img {
-    position: relative;
+    position: absolute;
     width: auto;
-    height: auto;
+    height: 200px;
     border-radius: 20px;
+    scale: ;
+    border: 1px solid var(--border-color);
+    -webkit-border-radius: var(--border);
+       -moz-border-radius: var(--border);
+            border-radius: var(--border);
+    -webkit-box-shadow: 0px 0px var(--border) var(--border-color);
+    -moz-box-shadow: 0px 0px var(--border) var(--border-color);
+            box-shadow: 0px 0px var(--border) var(--border-color);
+}
+
+img:hover {
+    
 }
