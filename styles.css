@@ -30,11 +30,14 @@ header {
 }
 
 img {
-    position: absolute;
-    width: auto;
+    display: flex;
+    flex: 2;
+    width: 200px;
     height: 200px;
+    margin-bottom: 10px; 
     border-radius: 20px;
-    scale: ;
+    object-fit: cover;
+
     border: 1px solid var(--border-color);
     -webkit-border-radius: var(--border);
        -moz-border-radius: var(--border);
@@ -45,5 +48,12 @@ img {
 }
 
 img:hover {
-    /*Krithka workspace */
+    transform: scale(1.05);
+    transition: transform 200ms;
+}
+
+.img-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
