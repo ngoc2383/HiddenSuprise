@@ -1,6 +1,6 @@
 :root {
     --border-color: #ff00dd;
-    --border: 15px;
+    --border: 20px;
 }
 body {
     padding-top: 0;
@@ -39,7 +39,7 @@ img {
     width: 200px;
     height: 200px;
     margin-bottom: 10px; 
-    border-radius: 20px;
+    border-radius: 30px;
     object-fit: cover;
 
     border: 1px solid var(--border-color);
