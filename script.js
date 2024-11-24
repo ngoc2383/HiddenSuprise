@@ -26,7 +26,8 @@ function playSound(animal) {
 
             const overlay = document.querySelector('.black-overlay');
             if (overlay) {
-                overlay.style.opacity = 0; // Hide overlay
+                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';  // Make overlay fully transparent
+                overlay.style.visibility = 'hidden';  // Hide overlay
                 overlay.style.zIndex = 4; // Reset z-index
             }
         }
@@ -54,8 +55,8 @@ function playSound(animal) {
             overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';  // Semi-transparent black
             overlay.style.visibility = 'visible';  // Make overlay visible
             overlay.style.zIndex = 4; // Place behind GIF
-            console.log(overlay.style.opacity)
-            console.log(overlay.style.zIndex)
+            console.log('Overlay should be visible with background color:', overlay.style.backgroundColor);
+            console.log('Overlay zIndex:', overlay.style.zIndex);
         }
 
         // Show GIFs and overlay when the sound starts playing
@@ -77,9 +78,11 @@ function playSound(animal) {
             if (overlay) {
                 overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';  // Make overlay fully transparent
                 overlay.style.visibility = 'hidden';  // Hide overlay
+                overlay.style.zIndex = 4; // Reset z-index
             }
         });
     }
 }
+
 
 
