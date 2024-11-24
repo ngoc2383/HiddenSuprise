@@ -109,11 +109,12 @@ audio {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
     width: 100vw;
     height: 100vh;
     z-index: 4;
     color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 

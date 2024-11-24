@@ -28,7 +28,7 @@ function playSound(animal) {
             const overlay = document.querySelector('.black-overlay');
             if (overlay) {
                 overlay.style.opacity = 0; // Hide overlay
-                overlay.style.zIndex = 0; // Reset z-index
+                overlay.style.zIndex = 4; // Reset z-index
             }
         }
 
