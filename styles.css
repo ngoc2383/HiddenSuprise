@@ -35,7 +35,7 @@ header {
     border-radius: 0 0 10px 10px;
 }
 
-img {
+.img-container img {
     display: flex;
     flex: 2;
     width: 17rem;
@@ -80,6 +80,8 @@ audio {
     max-height: 200px;
     z-index: 0;
     pointer-events: none;
+
+    border-radius: 10px;
 }
 
 #chicken-gif1 {
@@ -111,7 +113,7 @@ audio {
     opacity: 0;
     width: 100vw;
     height: 100wh;
-    pointer-events: none;
     z-index: 0;
     color: rgba(0, 0, 0, 0.5);
 }
+
