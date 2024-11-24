@@ -51,7 +51,7 @@ function playSound(animal) {
     if (animal === 'Chicken') {
         const overlay = document.querySelector('.black-overlay');
         if (overlay) {
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';  // Semi-transparent black
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';  // Semi-transparent black
             overlay.style.visibility = 'visible';  // Make overlay visible
             overlay.style.zIndex = 4; // Place behind GIF
             console.log(overlay.style.opacity)
