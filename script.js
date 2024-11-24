@@ -107,6 +107,7 @@ function playSound(animal) {
             }
         });
     } else {
+        resetZoom()
         // Handle all other sounds (Dog, Wolf, etc.), reset overlay if needed
         const overlay = document.querySelector('.black-overlay');
         if (overlay) {
