@@ -1,14 +1,12 @@
-const cat = document.getElementById('catsound');
-const dog = document.getElementById('dogsound');
-const wolf = document.getElementById('wolfsound');
-const bird = document.getElementById('birdsound');
-const chicken = document.getElementById('chickensound');
-const lion = document.getElementById('lionsound');
-
+// Function to play sound based on the image clicked
 function playSound(id) {
-    if (id == 'cat' || id == 'dog' || id == 'chicken' || id =='wolf' || id == 'bird' || id == 'lion') {
-        id.play();
-    }else{
-        console.error('Audio element not found!');
+    // Select the audio element by using the id with "sound" suffix
+    const audioElement = document.getElementById(id + 'sound');
+    
+    // Check if the audio element exists, and play it if it does
+    if (audioElement) {
+        audioElement.play();
+    } else {
+        console.error('Audio element not found for', id);
     }
 }
