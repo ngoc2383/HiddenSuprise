@@ -65,6 +65,7 @@ function playSound(animal) {
             console.log('Chicken GIF')
             gif.style.opacity = 1; // Make the GIF visible
             gif.style.zIndex = 5; // Bring it to the foreground
+            moveChickenGifsRandomly()
         });
 
         // Hide GIFs and overlay when the sound ends
@@ -84,5 +85,21 @@ function playSound(animal) {
     }
 }
 
+function moveChickenGifsRandomly() {
+    const chickenGifs = document.querySelectorAll('.chicken-gif');
+    
+    chickenGifs.forEach(gif => {
+        // Randomly decide the movement direction (top, left, right, bottom)
+        const randomX = Math.floor(Math.random() * window.innerWidth);  // Random X position within the window width
+        const randomY = Math.floor(Math.random() * window.innerHeight); // Random Y position within the window height
+
+        // Move the GIF to a random position
+        gif.style.left = `${randomX}px`;
+        gif.style.top = `${randomY}px`;
+    });
+}
+
+// Move GIFs every 2 seconds (or adjust timing as needed)
+setInterval(moveChickenGifsRandomly, 500);
 
 
