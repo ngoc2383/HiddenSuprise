@@ -19,7 +19,7 @@ h1 {
     font-family: "Slackey", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 header {
@@ -60,6 +60,7 @@ img:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+    margin: 35px;
 }
 
 audio {
