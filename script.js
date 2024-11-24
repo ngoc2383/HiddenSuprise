@@ -27,6 +27,20 @@ function playSound(animal) {
     } else {
         console.error('Audio element not found for', animal);
     }
+
+    // Handle special case for chicken (show GIFs)
+    if (animal === 'Chicken') {
+        const chickenGifs = document.querySelectorAll('.chicken-gif');
+        chickenGifs.forEach(gif => {
+            gif.style.opacity = 1; // Make the GIF visible
+            gif.style.zIndex = 2; // Bring it to the foreground
+        });
+
+        // Hide GIFs when the sound ends
+        newAudioElement.addEventListener('ended', () => {
+            chickenGifs.forEach(gif => {
+                gif.style.opacity = 0;
+                gif.style.zIndex = 0;
+            });
+    }
 }
-
-
