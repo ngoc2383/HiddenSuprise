@@ -11,3 +11,4 @@ function playSound(id) {
     }else{
         console.error('Audio element not found!');
     }
+}
