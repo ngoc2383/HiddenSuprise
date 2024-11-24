@@ -62,10 +62,10 @@ function playSound(animal) {
         // Show GIFs and overlay when the sound starts playing
         const chickenGifs = document.querySelectorAll('.chicken-gif');
         chickenGifs.forEach(gif => {
-            console.log('Chicken GIF')
+            console.log('Chicken GIF');
             gif.style.opacity = 1; // Make the GIF visible
             gif.style.zIndex = 5; // Bring it to the foreground
-            moveChickenGifsRandomly()
+            moveChickenGifsRandomly(gif); // Start moving the GIFs
         });
 
         // Hide GIFs and overlay when the sound ends
@@ -85,21 +85,46 @@ function playSound(animal) {
     }
 }
 
-function moveChickenGifsRandomly() {
-    const chickenGifs = document.querySelectorAll('.chicken-gif');
-    
-    chickenGifs.forEach(gif => {
-        // Randomly decide the movement direction (top, left, right, bottom)
-        const randomX = Math.floor(Math.random() * window.innerWidth);  // Random X position within the window width
-        const randomY = Math.floor(Math.random() * window.innerHeight); // Random Y position within the window height
+// Function to move chicken GIFs randomly and apply zoom effect when clicked
+function moveChickenGifsRandomly(gif) {
+    // Get the size of the GIF element
+    const gifWidth = gif.offsetWidth;
+    const gifHeight = gif.offsetHeight;
 
-        // Move the GIF to a random position
-        gif.style.left = `${randomX}px`;
-        gif.style.top = `${randomY}px`;
-    });
+    // Randomly decide the position within the visible screen area
+    const randomX = Math.floor(Math.random() * (window.innerWidth - gifWidth));  // Random X position within the window width
+    const randomY = Math.floor(Math.random() * (window.innerHeight - gifHeight)); // Random Y position within the window height
+
+    // Move the GIF to a random position, within the visible screen
+    gif.style.position = 'absolute'; // Ensure it's positioned absolutely
+    gif.style.left = `${randomX}px`;
+    gif.style.top = `${randomY}px`;
 }
 
+// Function to apply zoom effect when the chicken GIF is clicked
+function applyZoomEffect() {
+    // Apply zoom effect when the chicken image is clicked
+    document.body.style.transition = 'transform 0.3s ease'; // Smooth transition for zoom
+    document.body.style.transform = 'scale(1.5)'; // Zoom in effect
+
+    // Reset zoom after a short time (to return to normal size)
+    setTimeout(() => {
+        document.body.style.transform = 'scale(1)';
+    }, 300); // The zoom effect will reset after 300ms (adjust this duration as needed)
+}
+
+// Add event listener to chicken GIFs to apply zoom effect when clicked
+document.querySelectorAll('.chicken-gif').forEach(gif => {
+    gif.addEventListener('click', applyZoomEffect);
+});
+
 // Move GIFs every 2 seconds (or adjust timing as needed)
-setInterval(moveChickenGifsRandomly, 500);
+setInterval(() => {
+    const chickenGifs = document.querySelectorAll('.chicken-gif');
+    chickenGifs.forEach(gif => {
+        moveChickenGifsRandomly(gif);
+    });
+}, 300); // Adjust the interval for movement speed
+
 
 
