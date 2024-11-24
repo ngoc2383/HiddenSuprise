@@ -107,7 +107,8 @@ audio {
 .black-overlay {
     position: absolute;
     opacity: 0;
-    width: 100rem;
-    height: 100rem;
+    width: 100vw;
+    height: 100wh;
     pointer-events: none;
+    z-index: 0;
 }

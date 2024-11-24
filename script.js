@@ -66,6 +66,8 @@ function playSound(animal) {
                 gif.style.opacity = 0;
                 gif.style.zIndex = 0;
             });
+
+            overlay
         });
     }
 }
