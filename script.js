@@ -148,7 +148,7 @@ function resetZoom() {
     document.body.style.transition = 'transform 0.1s ease'; // Ensure smooth transition
 }
 
-// Move GIFs every 2 seconds (or adjust timing as needed)
+// Move GIFs every 0.3 seconds (or adjust timing as needed)
 setInterval(() => {
     const chickenGifs = document.querySelectorAll('.chicken-gif');
     chickenGifs.forEach(gif => {
