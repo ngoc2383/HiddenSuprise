@@ -88,17 +88,15 @@ function playSound(animal) {
             resetZoom();
         });
     } else if (animal === 'Cat') {
-        // Reset zoom effect when switching to other animals
         resetZoom()
-
+        
         const overlay = document.querySelector('.black-overlay');
         if (overlay) {
-            overlay.style.backgroundColor = 'rgba(255, 0, 0, 0.7)';  // Red semi-transparent overlay for Cat
+            overlay.style.backgroundColor = 'rgba(255, 0, 0, 0.7)';  // Semi-transparent black
             overlay.style.visibility = 'visible';  // Make overlay visible
             overlay.style.zIndex = 4;
         }
 
-        // Add event listener for the Cat sound to reset overlay after it ends
         newAudioElement.addEventListener('ended', () => {
             if (overlay) {
                 overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';  // Make overlay fully transparent
@@ -106,14 +104,6 @@ function playSound(animal) {
                 overlay.style.zIndex = 4;
             }
         });
-    } else {
-        // Handle all other sounds (Dog, Wolf, etc.), reset overlay if needed
-        const overlay = document.querySelector('.black-overlay');
-        if (overlay) {
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';  // Make overlay fully transparent for non-chicken sounds
-            overlay.style.visibility = 'hidden';  // Hide overlay for non-chicken sounds
-            overlay.style.zIndex = 4;
-        }
     }
 }
 
@@ -129,8 +119,8 @@ function moveChickenGifsRandomly(gif) {
 
     // Ensure the new position is not the same as the last position
     do {
-        randomX = Math.floor(Math.random() * (document.body.offsetWidth - gifWidth));  // Random X position within the window width
-        randomY = Math.floor(Math.random() * (document.body.offsetHeight - gifHeight)); // Random Y position within the window height
+        randomX = Math.floor(Math.random() * (window.innerWidth - gifWidth));  // Random X position within the window width
+        randomY = Math.floor(Math.random() * (window.innerHeight - gifHeight)); // Random Y position within the window height
     } while (randomX === lastPosition.x && randomY === lastPosition.y);  // If same as previous, regenerate
 
     // Move the GIF to a random position, within the visible screen
