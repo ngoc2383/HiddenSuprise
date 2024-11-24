@@ -78,19 +78,4 @@ function playSound(animal) {
     }
 }
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === "example") {
-        // Do some async work
-        fetchSomeData().then(data => {
-            sendResponse(data); // Send the response back
-        }).catch(err => {
-            console.error(err);
-            sendResponse({ error: "Failed to fetch data" }); // Respond with an error
-        });
-
-        // Return true to indicate that the response is async
-        return true;
-    }
-});
-
 

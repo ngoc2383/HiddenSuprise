@@ -64,6 +64,7 @@ header {
     justify-content: center;
     align-items: center;
     inset: 10px;
+    z-index: 1;
 }
 
 audio {
