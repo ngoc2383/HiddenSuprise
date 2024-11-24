@@ -24,6 +24,7 @@ function playSound(animal) {
                 gif.style.zIndex = 0; // Reset z-index
             });
 
+            // Handle overlay visibility
             const overlay = document.querySelector('.black-overlay');
             if (overlay) {
                 overlay.style.opacity = 0; // Hide overlay
@@ -46,7 +47,7 @@ function playSound(animal) {
         return;
     }
 
-    // Handle special case for chicken (show GIFs while sound is playing)
+    // Handle special case for chicken (show GIFs and overlay while sound is playing)
     if (animal === 'Chicken') {
         const chickenGifs = document.querySelectorAll('.chicken-gif');
         chickenGifs.forEach(gif => {
@@ -60,14 +61,16 @@ function playSound(animal) {
             overlay.style.zIndex = 1; // Place behind GIF
         }
 
-        // Hide GIFs when the sound ends
+        // Hide GIFs and overlay when the sound ends
         newAudioElement.addEventListener('ended', () => {
             chickenGifs.forEach(gif => {
                 gif.style.opacity = 0;
                 gif.style.zIndex = 0;
             });
 
-            overlay {
+            // Hide overlay after sound ends
+            const overlay = document.querySelector('.black-overlay');
+            if (overlay) {
                 overlay.style.opacity = 0;
                 overlay.style.zIndex = 0;
             }
