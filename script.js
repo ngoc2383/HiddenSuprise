@@ -51,13 +51,17 @@ function playSound(animal) {
     if (animal === 'Chicken') {
         const overlay = document.querySelector('.black-overlay');
         if (overlay) {
-            overlay.style.opacity = 1; // Show overlay with semi-transparency
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';  // Semi-transparent black
+            overlay.style.visibility = 'visible';  // Make overlay visible
             overlay.style.zIndex = 4; // Place behind GIF
+            console.log(overlay.style.opacity)
+            console.log(overlay.style.zIndex)
         }
 
         // Show GIFs and overlay when the sound starts playing
         const chickenGifs = document.querySelectorAll('.chicken-gif');
         chickenGifs.forEach(gif => {
+            console.log('Chicken GIF')
             gif.style.opacity = 1; // Make the GIF visible
             gif.style.zIndex = 5; // Bring it to the foreground
         });
@@ -71,8 +75,8 @@ function playSound(animal) {
             });
 
             if (overlay) {
-                overlay.style.opacity = 0;
-                overlay.style.zIndex = 4;
+                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';  // Make overlay fully transparent
+                overlay.style.visibility = 'hidden';  // Hide overlay
             }
         });
     }
