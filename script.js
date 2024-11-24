@@ -51,7 +51,6 @@ function playSound(animal) {
     if (animal === 'Chicken') {
         const overlay = document.querySelector('.black-overlay');
         if (overlay) {
-            console.log('Showing overlay');
             overlay.style.opacity = 1; // Show overlay with semi-transparency
             overlay.style.zIndex = 4; // Place behind GIF
         }
@@ -78,5 +77,20 @@ function playSound(animal) {
         });
     }
 }
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.type === "example") {
+        // Do some async work
+        fetchSomeData().then(data => {
+            sendResponse(data); // Send the response back
+        }).catch(err => {
+            console.error(err);
+            sendResponse({ error: "Failed to fetch data" }); // Respond with an error
+        });
+
+        // Return true to indicate that the response is async
+        return true;
+    }
+});
 
 
