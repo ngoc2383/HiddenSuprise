@@ -108,6 +108,17 @@ audio {
     }
 }
 
+@media screen and (min-width: 1025px) {
+    img {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+}
+    
 .black-overlay {
     position: fixed;
     top: 0;
@@ -120,3 +131,4 @@ audio {
     transition: visibility 0s 0.1s, background-color 0.5s ease; /* Transition visibility with color change */
     pointer-events: none;
 }
+
