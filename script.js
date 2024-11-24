@@ -1,4 +1,5 @@
 let currentAudio = null;
+let zoomInterval = null;  // Variable to store zoom interval
 
 function playSound(animal) {
     const audioMap = {
@@ -64,14 +65,11 @@ function playSound(animal) {
             gif.style.opacity = 1; // Make the GIF visible
             gif.style.zIndex = 5; // Bring it to the foreground
             moveChickenGifsRandomly(gif); // Start moving the GIFs
-            setInterval(() => {
-                const chickenGifs = document.querySelectorAll('.chicken-gif');
-                chickenGifs.forEach(gif => {
-                    applyZoomEffect();
-                });
-            }, 300);
         });
 
+        // Start the zoom effect repeatedly while the chicken sound plays
+        applyZoomEffect();
+        
         // Hide GIFs and overlay when the sound ends
         newAudioElement.addEventListener('ended', () => {
             console.log('Audio ended for Chicken, hiding overlay');
@@ -85,36 +83,69 @@ function playSound(animal) {
                 overlay.style.visibility = 'hidden';  // Hide overlay
                 overlay.style.zIndex = 4; // Reset z-index
             }
+
+            // Stop zooming effect once the sound ends
+            resetZoom();
         });
+    } else {
+        // Reset zoom when switching to other animals
+        resetZoom();
     }
 }
 
-// Function to move chicken GIFs randomly
+let lastPosition = { x: null, y: null };
+
 function moveChickenGifsRandomly(gif) {
     // Get the size of the GIF element
     const gifWidth = gif.offsetWidth;
     const gifHeight = gif.offsetHeight;
 
     // Randomly decide the position within the visible screen area
-    const randomX = Math.floor(Math.random() * (window.innerWidth - gifWidth));  // Random X position within the window width
-    const randomY = Math.floor(Math.random() * (window.innerHeight - gifHeight)); // Random Y position within the window height
+    let randomX, randomY;
+
+    // Ensure the new position is not the same as the last position
+    do {
+        randomX = Math.floor(Math.random() * (window.innerWidth - gifWidth));  // Random X position within the window width
+        randomY = Math.floor(Math.random() * (window.innerHeight - gifHeight)); // Random Y position within the window height
+    } while (randomX === lastPosition.x && randomY === lastPosition.y);  // If same as previous, regenerate
 
     // Move the GIF to a random position, within the visible screen
     gif.style.position = 'absolute'; // Ensure it's positioned absolutely
     gif.style.left = `${randomX}px`;
     gif.style.top = `${randomY}px`;
+
+    // Update last position to current position
+    lastPosition = { x: randomX, y: randomY };
 }
 
 // Function to apply zoom effect when the chicken GIF is clicked
 function applyZoomEffect() {
     // Apply zoom effect when the chicken image is clicked
-    document.body.style.transition = 'transform 0.3s ease'; // Smooth transition for zoom
-    document.body.style.transform = 'scale(1.5)'; // Zoom in effect
+    document.body.style.transition = 'transform 0.2s ease'; // Smooth transition for zoom
+    document.body.style.transform = 'scale(1.2)'; // Zoom in effect
 
-    // Reset zoom after a short time (to return to normal size)
-    setTimeout(() => {
-        document.body.style.transform = 'scale(1)';
-    }, 300); // The zoom effect will reset after 300ms (adjust this duration as needed)
+    // Create an interval to repeatedly apply the zoom effect while the chicken sound is playing
+    if (!zoomInterval) {
+        zoomInterval = setInterval(() => {
+            document.body.style.transition = 'transform 0.1s ease';  // Reset transition
+            document.body.style.transform = 'scale(1.1)'; // Apply zoom in
+
+            // After a brief interval, reset zoom
+            setTimeout(() => {
+                document.body.style.transform = 'scale(1)'; // Reset zoom back to normal
+            }, 150); // This controls the speed of the zoom effect
+        }, 300); // Interval at which zoom happens (adjust this value for repeat frequency)
+    }
+}
+
+// Function to reset zoom effect (for switching between animals)
+function resetZoom() {
+    if (zoomInterval) {
+        clearInterval(zoomInterval);  // Clear the zoom interval when switching to other animals
+        zoomInterval = null;  // Reset the zoom interval
+    }
+    document.body.style.transform = 'scale(1)';  // Reset zoom back to normal
+    document.body.style.transition = 'transform 0.1s ease'; // Ensure smooth transition
 }
 
 // Move GIFs every 2 seconds (or adjust timing as needed)
@@ -124,6 +155,3 @@ setInterval(() => {
         moveChickenGifsRandomly(gif);
     });
 }, 300); // Adjust the interval for movement speed
-
-
-
