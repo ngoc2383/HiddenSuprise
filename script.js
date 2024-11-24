@@ -55,8 +55,6 @@ function playSound(animal) {
             overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';  // Semi-transparent black
             overlay.style.visibility = 'visible';  // Make overlay visible
             overlay.style.zIndex = 4; // Place behind GIF
-            console.log('Overlay should be visible with background color:', overlay.style.backgroundColor);
-            console.log('Overlay zIndex:', overlay.style.zIndex);
         }
 
         // Show GIFs and overlay when the sound starts playing
@@ -85,7 +83,7 @@ function playSound(animal) {
     }
 }
 
-// Function to move chicken GIFs randomly and apply zoom effect when clicked
+// Function to move chicken GIFs randomly
 function moveChickenGifsRandomly(gif) {
     // Get the size of the GIF element
     const gifWidth = gif.offsetWidth;
@@ -124,7 +122,7 @@ setInterval(() => {
     chickenGifs.forEach(gif => {
         moveChickenGifsRandomly(gif);
     });
-}, 300); // Adjust the interval for movement speed
+}, 2000); // Adjust the interval for movement speed
 
 
 
