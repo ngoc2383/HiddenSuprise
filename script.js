@@ -1,4 +1,5 @@
 let currentAudio = null;
+let zoomInterval = null;  // Variable to store zoom interval
 
 function playSound(animal) {
     const audioMap = {
@@ -102,9 +103,6 @@ function playSound(animal) {
                 overlay.style.zIndex = 4;
             }
         });
-    } else {
-        // Reset zoom when switching to other animals
-        resetZoom();
     }
 }
 
