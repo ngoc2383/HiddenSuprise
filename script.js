@@ -52,13 +52,13 @@ function playSound(animal) {
         const chickenGifs = document.querySelectorAll('.chicken-gif');
         chickenGifs.forEach(gif => {
             gif.style.opacity = 1; // Make the GIF visible
-            gif.style.zIndex = 2; // Bring it to the foreground
+            gif.style.zIndex = 3; // Bring it to the foreground
         });
 
         const overlay = document.querySelector('.black-overlay');
         if (overlay) {
             overlay.style.opacity = 1; // Show overlay with semi-transparency
-            overlay.style.zIndex = 1; // Place behind GIF
+            overlay.style.zIndex = 2; // Place behind GIF
         }
 
         // Hide GIFs and overlay when the sound ends
