@@ -4,8 +4,12 @@
 }
 body {
     padding-top: 0;
-    margin: 0;
     background-color: rgb(18, 1, 22);
+    margin: 0 10%;
+    display: absolute;
+    position: relative;
+    overflow-x: hidden;
+    max-width: 1200px;
 }
 
 h1 {

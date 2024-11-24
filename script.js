@@ -6,6 +6,6 @@ const chicken = document.getElementById('chickensound');
 const lion = document.getElementById('lionsound');
 
 function catSound() {
-    if ElementInternals
+    if ElementInternals 
     cat.play();
 }
