@@ -2,12 +2,12 @@
 function playSound(id) {
     // Map of animal ids to their respective sound file paths
     const soundMap = {
-        'cat': 'Cat Sound.mp3',
-        'dog': 'Dog Sound.mp3',
-        'chicken': 'Chicken Sound.mp3',
-        'wolf': 'Wolf Sound.mp3',
-        'lion': 'Lion Sound.mp3',
-        'bird': 'Bird Sound.mp3'
+        'cat': '/.Cat Sound.mp3',
+        'dog': '/.Dog Sound.mp3',
+        'chicken': '/.Chicken Sound.mp3',
+        'wolf': '/.Wolf Sound.mp3',
+        'lion': '/.Lion Sound.mp3',
+        'bird': '/.Bird Sound.mp3'
     };
 
     // Check if the id exists in the map
