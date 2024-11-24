@@ -112,7 +112,7 @@ audio {
     left: 0;
     opacity: 0;
     width: 100vw;
-    height: 100wh;
+    height: 100vh;
     z-index: 0;
     color: rgba(0, 0, 0, 0.5);
 }

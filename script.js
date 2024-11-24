@@ -1,5 +1,5 @@
-// Function to play sound based on the image clicked
 let currentAudio = null;
+
 function playSound(animal) {
     // Define the corresponding audio element for each animal
     const audioMap = {
@@ -14,9 +14,9 @@ function playSound(animal) {
     // Get the audio element by id based on the provided animal
     const newAudioElement = document.getElementById(audioMap[animal]);
 
-    // If there is already an audio playing, stop it
+    // If there is already an audio playing, stop it and hide GIFs/overlay
     if (currentAudio) {
-        // Special handling for chicken sound (hide GIFs)
+        // Special handling for chicken sound (hide GIFs and overlay)
         if (currentAudio.id === 'chickensound') {
             const chickenGifs = document.querySelectorAll('.chicken-gif');
             chickenGifs.forEach(gif => {
@@ -57,7 +57,7 @@ function playSound(animal) {
 
         const overlay = document.querySelector('.black-overlay');
         if (overlay) {
-            overlay.style.opacity = 1; // Show overlay
+            overlay.style.opacity = 1; // Show overlay with semi-transparency
             overlay.style.zIndex = 1; // Place behind GIF
         }
 
