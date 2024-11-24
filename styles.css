@@ -5,7 +5,7 @@
 body {
     padding-top: 0;
     background-color: rgb(18, 1, 22);
-    margin: 0 10%;
+    margin: auto;
     display: absolute;
     position: relative;
     overflow-x: hidden;
@@ -24,7 +24,7 @@ h1 {
 }
 
 header {
-    margin: 5px 20px 5px 5px;
+    margin: 5px 5px 20px 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,4 +69,36 @@ img:hover {
 
 audio {
     display: none;
+}
+
+.chicken-gif {
+    opacity: 0;
+    width: auto;
+    height: auto;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+#chicken-gif1 {
+    position: absolute;
+}
+
+#chicken-gif2 {
+    position: absolute;
+}
+
+#chicken-gif3 {
+    position: absolute;
+}
+
+#chicken.clicked .chicken-gif{
+    opacity: 1;
+    z-index: 2;
+}
+
+@media screen and (max-width: 600px) {
+    img {
+        width: 25rem;
+        height: 25rem;
+    }
 }
