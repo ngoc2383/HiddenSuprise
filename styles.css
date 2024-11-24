@@ -106,9 +106,12 @@ audio {
 
 .black-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
     width: 100vw;
     height: 100wh;
     pointer-events: none;
     z-index: 0;
+    color: rgba(0, 0, 0, 0.5);
 }

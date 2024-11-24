@@ -57,7 +57,7 @@ function playSound(animal) {
 
         const overlay = document.querySelector('.black-overlay');
         if (overlay) {
-            overlay.style.opacity = 0.5; // Show overlay
+            overlay.style.opacity = 1; // Show overlay
             overlay.style.zIndex = 1; // Place behind GIF
         }
 
