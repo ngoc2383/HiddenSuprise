@@ -64,6 +64,12 @@ function playSound(animal) {
             gif.style.opacity = 1; // Make the GIF visible
             gif.style.zIndex = 5; // Bring it to the foreground
             moveChickenGifsRandomly(gif); // Start moving the GIFs
+            setInterval(() => {
+                const chickenGifs = document.querySelectorAll('.chicken-gif');
+                chickenGifs.forEach(gif => {
+                    applyZoomEffect();
+                });
+            }, 300);
         });
 
         // Hide GIFs and overlay when the sound ends
@@ -111,18 +117,13 @@ function applyZoomEffect() {
     }, 300); // The zoom effect will reset after 300ms (adjust this duration as needed)
 }
 
-// Add event listener to chicken GIFs to apply zoom effect when clicked
-document.querySelectorAll('.chicken-gif').forEach(gif => {
-    gif.addEventListener('click', applyZoomEffect);
-});
-
 // Move GIFs every 2 seconds (or adjust timing as needed)
 setInterval(() => {
     const chickenGifs = document.querySelectorAll('.chicken-gif');
     chickenGifs.forEach(gif => {
         moveChickenGifsRandomly(gif);
     });
-}, 2000); // Adjust the interval for movement speed
+}, 300); // Adjust the interval for movement speed
 
 
 
