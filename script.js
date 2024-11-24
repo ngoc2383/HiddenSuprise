@@ -67,7 +67,10 @@ function playSound(animal) {
                 gif.style.zIndex = 0;
             });
 
-            overlay
+            overlay {
+                overlay.style.opacity = 0;
+                overlay.style.zIndex = 0;
+            }
         });
     }
 }
