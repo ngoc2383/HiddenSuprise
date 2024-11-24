@@ -6,6 +6,7 @@ function playSound(id) {
     // Check if the audio element exists, and play it if it does
     if (audioElement) {
         audioElement.play();
+        console.log('Playing sound for ', id);
     } else {
         console.error('Audio element not found for', id);
     }
